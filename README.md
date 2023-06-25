@@ -64,10 +64,12 @@ developing your own process.
 
   - How I debugged: 
     -I tried submitting a new toy and looked at the server logs.
+    
+    
+    ![img](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2006-55-11.png?raw=true)
+    
 
-![img]([https://example.com/path/to/image.jpg](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2006-55-11.png?raw=true))
-
-    -Ahe server logs indicated that it was an internal server error and even suggested a possible fix so I tried that solution first.
+    -The server logs indicated that it was an internal server error and even suggested a possible fix so I tried that solution first.
 
     -After changing the name the request was successful and the toy was created in the database
 
@@ -76,7 +78,10 @@ developing your own process.
   - How I debugged:
     -Attempted to like a toy and looked at the server logs for any possible leads
 
-  ![img]([https://example.com/path/to/image.jpg](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2007-05-39.png?raw=true))
+
+    ![img](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2007-05-39.png?raw=true)
+
+  
 
     -The error log suggested that the error was coming from the update method in the toys_controller
 
@@ -91,13 +96,16 @@ developing your own process.
   - How I debugged:
     -After trying to donate a toy a routing error appeared on the server logs specifically there were no delete route matches according to the logs so I went to /config/routes.rb to confirm this
 
-![img](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2007-16-27.png?raw=true)
+  
 
+    ![img](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2007-16-27.png?raw=true)
+
+
+  
     -So I added a destroy route by using the available resource and confirmed that it was up and running
 
-    
-![img](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2007-21-28.png?raw=true)
-
+  
+    ![img](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2007-21-28.png?raw=true)
 
 
     -Next, I went to the toys_controller to check if there was an action to the delete route.
