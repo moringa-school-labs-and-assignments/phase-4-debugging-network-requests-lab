@@ -63,37 +63,43 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged: 
-    i tried subbmitting a new toy and looked at the server logs.
+    -I tried submitting a new toy and looked at the server logs.
 
+![img]([https://example.com/path/to/image.jpg](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2006-55-11.png?raw=true))
 
-    the server logs indicated that it was an internal server error and even suggested a possible fix so i tried that solution first.
+    -Ahe server logs indicated that it was an internal server error and even suggested a possible fix so I tried that solution first.
 
-    after changing the name the request was succecful and the toy was created in the database
+    -After changing the name the request was successful and the toy was created in the database
 
 - Update the number of likes for a toy
 
   - How I debugged:
-    attempted to like a toy and looked at the server logs for any possible leads
+    -Attempted to like a toy and looked at the server logs for any possible leads
 
+  ![img]([https://example.com/path/to/image.jpg](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2007-05-39.png?raw=true))
 
-    the error log suggested that the error was coming from the update method in the toys_controller
+    -The error log suggested that the error was coming from the update method in the toys_controller
 
-    after examining the code in the controller i realized it was trying to update the param[:id] which was not included in the toy_params method in the private section, the part of the error that said "Unpermitted parameter: :id" made more sence now.
+    -After examining the code in the controller I realized it was trying to update the param[:id] which was not included in the toy_params method in the private section, the part of the error that said "Unpermitted parameter: :id" made more sense now.
 
-    after including the [:id] param in the method the likes updated smoothly
+    -After including the [:id] param in the method the likes are updated smoothly
 
 
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
-    after trying to donate a toy a routing error appeared on the server logs specifically there was no delete route matches according to the logs so i went to /config/routes.rb to confirm this
+    -After trying to donate a toy a routing error appeared on the server logs specifically there were no delete route matches according to the logs so I went to /config/routes.rb to confirm this
+
+![img](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2007-16-27.png?raw=true)
+
+    -So I added a destroy route by using the available resource and confirmed that it was up and running
+
+    
+![img](https://github.com/moringa-school-labs-and-assignments/phase-4-debugging-network-requests-lab/blob/main/images/Screenshot%20from%202023-06-25%2007-21-28.png?raw=true)
 
 
-    so i added a destroy route by using the available resource and confirmed that it was up and running
 
+    -Next, I went to the toys_controller to check if there was an action to the delete route.
 
-
-    next i went to the toys_controller to check if there was an action to the delete route. it was present
-
-    now on donating the toy there were no more route errors on the server logs
+    -Now on donating the toy, there were no issues
