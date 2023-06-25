@@ -62,12 +62,38 @@ developing your own process.
 
 - Add a new toy when the toy form is submitted
 
-  - How I debugged:
+  - How I debugged: 
+    i tried subbmitting a new toy and looked at the server logs.
+
+
+    the server logs indicated that it was an internal server error and even suggested a possible fix so i tried that solution first.
+
+    after changing the name the request was succecful and the toy was created in the database
 
 - Update the number of likes for a toy
 
   - How I debugged:
+    attempted to like a toy and looked at the server logs for any possible leads
+
+
+    the error log suggested that the error was coming from the update method in the toys_controller
+
+    after examining the code in the controller i realized it was trying to update the param[:id] which was not included in the toy_params method in the private section, the part of the error that said "Unpermitted parameter: :id" made more sence now.
+
+    after including the [:id] param in the method the likes updated smoothly
+
+
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+    after trying to donate a toy a routing error appeared on the server logs specifically there was no delete route matches according to the logs so i went to /config/routes.rb to confirm this
+
+
+    so i added a destroy route by using the available resource and confirmed that it was up and running
+
+
+
+    next i went to the toys_controller to check if there was an action to the delete route. it was present
+
+    now on donating the toy there were no more route errors on the server logs
